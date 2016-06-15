@@ -1,0 +1,71 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../bower_components/iron-icon/iron-icon.html">
+<link rel="import" href="my-icons.html">
+
+<dom-module id="udacity-baroda-home">
+
+  <template>
+
+    <style>
+      :host {
+        min-height: 100vh;
+        /*background: url('../images/background.jpeg');*/
+        background-color: #6ed3cf;
+        background-size: cover;
+        display: block;
+        padding: 10px;
+      }
+      h1 {
+        font-size: 10vh;
+        font-weight: lighter;
+        line-height: 1rem;
+      }
+      .register {
+        background-color: #000000;
+      }
+      a {
+        outline: none !important;
+        text-decoration: none;
+        color: #FFFFFF;
+      }
+      .venue {
+        color: #000000;
+      }
+      .container {
+        text-align: center;
+        padding-top: 200px;
+      }
+      .text-center {
+        text-align: center;
+      }
+    </style>
+
+    <div class="container">
+      <h1>Hack Master</h1>
+      <h3>Code your heart out</h3>
+      <h2>23<sup>rd</sup> - 24<sup>th</sup>, July 2016</h2>
+      <paper-button>
+        <a class="venue" href="https://www.google.com/maps?q=22.3387189,73.1903572" target="_blank" tabindex="-1">
+          <iron-icon icon="location"></iron-icon> Navrachna School, Sama, Vadodara
+        </a>
+      </paper-button>
+      <br><br>
+      <paper-button raised class="register">
+        <a href="javascript:void(0)" target="_blank" tabindex="-1">Register</a>
+      </paper-button>
+    </div>
+  </template>
+
+  <script>
+
+    Polymer({
+      is: 'udacity-baroda-home',
+      toggleDialog: function(e) {
+        this.$.animated.toggle();
+      }
+    });
+
+  </script>
+
+</dom-module>

@@ -1,0 +1,22 @@
+[
+  {
+      "time": "3:00 AM",
+      "event": "Midnight Snacks"
+  },
+  {
+      "time": "9:00 AM",
+      "event": "Breakfast"
+  },
+  {
+      "time": "1:00 PM",
+      "event": "Lunch"
+  },
+  {
+      "time": "4:00 PM",
+      "event": "Submissions"
+  },
+  {
+      "time": "5:00 PM",
+      "event": "Demos and result"
+  }
+]

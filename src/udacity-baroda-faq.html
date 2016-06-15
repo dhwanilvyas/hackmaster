@@ -1,0 +1,46 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/iron-ajax/iron-ajax.html">
+
+<dom-module id="udacity-baroda-faq">
+
+  <template>
+
+    <style>
+      :host {
+        display: block;
+        background-color: #F8F8F8;
+        padding: 50px;
+      }
+      h1 {
+        font-weight: 300;
+        text-align: center;
+      }
+    </style>
+
+    <iron-ajax
+      auto
+      url="../content/faq.json"
+      method="GET"
+      params='{"alt":"json", "q":"chrome"}'
+      handle-as="json"
+      last-response="{{ajaxResponse}}"></iron-ajax>
+
+    <h1>FAQs</h1>
+    <template is="dom-repeat" items=[[ajaxResponse]]>
+      <h3>{{item.question}}</h3>
+      <p>{{item.answer}}</p>
+    </template>
+
+  </template>
+
+  <script>
+
+    Polymer({
+
+      is: 'udacity-baroda-faq'
+
+    });
+
+  </script>
+
+</dom-module>

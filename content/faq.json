@@ -1,0 +1,30 @@
+[
+  {
+    "question": "Is the event open to all?",
+    "answer": "Yes."
+  },
+  {
+    "question": "Is there any registration fee?",
+    "answer": "No."
+  },
+  {
+    "question": "Do I need a team?",
+    "answer": "You can participate as an individual or in a team."
+  },
+  {
+    "question": "What is the team size limit?",
+    "answer": "Maximum of 4 members per team."
+  },
+  {
+    "question": "What about food?",
+    "answer": "Food is on us."
+  },
+  {
+    "question": "Do I need to bring my laptop?",
+    "answer": "Yes."
+  },
+  {
+    "question": "I have another concern.",
+    "answer": "Email us at info@hackmaster.in"
+  }
+]

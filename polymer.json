@@ -1,0 +1,10 @@
+{
+  "entrypoint": "index.html",
+  "shell": "src/udacity-baroda-app.html",
+  "fragments": [
+    "src/udacity-baroda-home.html",
+    "src/udacity-baroda-about.html",
+    "src/udacity-baroda-schedule.html",
+    "src/udacity-baroda-faq.html"
+  ]
+}

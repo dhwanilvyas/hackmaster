@@ -1,0 +1,26 @@
+[
+  {
+      "time": "8:00 AM",
+      "event": "Registration"
+  },
+  {
+      "time": "9:00 AM",
+      "event": "Breakfast"
+  },
+  {
+      "time": "10:00 AM",
+      "event": "Keynote"
+  },
+  {
+      "time": "11:00 AM",
+      "event": "Coding starts"
+  },
+  {
+      "time": "2:00 PM",
+      "event": "Lunch"
+  },
+  {
+      "time": "8:00 PM",
+      "event": "Dinner"
+  }
+]

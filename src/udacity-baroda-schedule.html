@@ -1,0 +1,153 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/iron-ajax/iron-ajax.html">
+<link rel="import" href="../bower_components/iron-pages/iron-pages.html">
+<link rel="import" href="../bower_components/paper-tabs/paper-tabs.html">
+<link rel="import" href="../bower_components/paper-tabs/paper-tab.html">
+<link rel="import" href="../bower_components/neon-animation/neon-animated-pages.html">
+<link rel="import" href="../bower_components/neon-animation/neon-animatable.html">
+<link rel="import" href="../bower_components/neon-animation/neon-animation-runner-behavior.html">
+<link rel="import" href="../bower_components/neon-animation/animations/fade-in-animation.html">
+<link rel="import" href="../bower_components/neon-animation/animations/fade-out-animation.html">
+<link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout-classes.html">
+
+<dom-module id="udacity-baroda-schedule">
+
+  <template>
+
+    <style include="iron-flex iron-flex-alignment">
+      :host {
+        --paper-tab-ink: #000000;
+        display: block;
+        height: 100vh;
+        margin: 0 auto;
+        max-width: 896px;
+        padding: 10px;
+      }
+      h1 {
+        font-weight: 300;
+      }
+      paper-tabs {
+        --paper-tabs-selection-bar-color: #000000;
+        background-color: #e0e0e0;
+        border-radius: 1px;
+      }
+      h3 {
+        line-height: 0;
+        font-weight: 400;
+      }
+      neon-animated-pages {
+        /*margin-left: 3rem;*/
+      }
+      .item {
+        border-top: 1px solid #eaeaea
+      }
+      .item div {
+        padding: 1rem;
+      }
+      .time {
+        border-right: 1px solid #e8e8e8;
+        width: 100px;
+      }
+      .container {
+        background-color: #f5f5f5;
+        min-height: 300px;
+        border: 1px solid #f5f5f5;
+        border-radius: 5px;
+      }
+      .text-center {
+        text-align: center;
+      }
+    </style>
+
+    <iron-ajax
+      auto
+      url="../content/23-schedule.json"
+      method="GET"
+      params='{"alt":"json", "q":"chrome"}'
+      handle-as="json"
+      last-response="{{dayOne}}"></iron-ajax>
+
+      <iron-ajax
+        auto
+        url="../content/24-schedule.json"
+        method="GET"
+        params='{"alt":"json", "q":"chrome"}'
+        handle-as="json"
+        last-response="{{dayTwo}}"></iron-ajax>
+
+      <h1 class="text-center">Schedule</h1>
+      <paper-tabs selected="{{selected}}">
+        <paper-tab><strong>23<sup>rd</sup> July</strong></paper-tab>
+        <paper-tab><strong>24<sup>th</sup> July</strong></paper-tab>
+      </paper-tabs>
+      <neon-animated-pages selected="[[selected]]" entry-animation="fade-in-animation" exit-animation="fade-out-animation">
+        <neon-animatable>
+          <div class="container">
+            <template is="dom-repeat" items=[[dayOne]]>
+              <div class="horizontal layout item">
+                <div class="time">
+                  <h3>{{item.time}}</h3>
+                </div>
+                <div>
+                  <h3>{{item.event}}</h3>
+                </div>
+              </div>
+            </template>
+          </div>
+        </neon-animatable>
+        <neon-animatable>
+          <div class="container">
+          <template is="dom-repeat" items=[[dayTwo]]>
+              <div class="horizontal layout item">
+                <div class="time">
+                  <h3>{{item.time}}</h3>
+                </div>
+                <div>
+                  <h3>{{item.event}}</h3>
+                </div>
+              </div>
+            </template>
+          </div>
+        </neon-animatable>
+      </neon-animated-pages>
+  </template>
+
+  <script>
+
+    Polymer({
+      is: 'udacity-baroda-schedule',
+      listeners: {
+        'iron-select': '_onTabChange'
+      },
+      behaviors: [Polymer.NeonAnimatableBehavior],
+      properties: {
+       selected: {
+           value: 0
+       },
+       animationConfig: {
+         value: function() {
+           return {
+             'entry': [{
+               name: 'fade-in-animation',
+               node: this,
+               timing: {
+                 delay: 500
+               }
+             }],
+             'exit': [{
+                 name: 'fade-out-animation',
+                 node: this
+               }
+             ]
+           }
+         }
+       }
+     },
+     _onTabChange: function() {
+       this._entryAnimation = 'fade-in-animation';
+     }
+    });
+
+  </script>
+
+</dom-module>

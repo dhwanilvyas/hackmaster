@@ -1,0 +1,52 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/paper-icon-button/paper-icon-button.html">
+<link rel="import" href="my-icons.html">
+
+<dom-module id="udacity-baroda-footer">
+
+  <template>
+
+    <style>
+      :host {
+        display: block;
+      }
+      .container{
+        font-size: 14px;
+        line-height: 1.8em;
+        padding: 30px;
+        background-color: #212121;
+        color: #FFFFFF;
+      }
+      paper-icon-button {
+        float: right;
+      }
+      a {
+        text-decoration: none;
+        color: #FFFFFF;
+        outline: none !important;
+      }
+    </style>
+
+    <div class="container">
+      <a href="http://udacitybaroda.github.io" target="_blank">
+        &copy; Udacity Community, Baroda.
+      </a>
+      <a href="https://facebook.com/dhwanil" target="_blank">
+        <paper-icon-button icon="twitter" />
+      </a>
+      <a href="http://dhwanil.in" target="_blank">
+        <paper-icon-button icon="facebook" />
+      </a>
+    </div>
+
+  </template>
+
+  <script>
+
+    Polymer({
+      is: 'udacity-baroda-footer'
+    });
+
+  </script>
+
+</dom-module>

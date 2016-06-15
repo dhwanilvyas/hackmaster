@@ -1,0 +1,54 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/iron-ajax/iron-ajax.html">
+<link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout-classes.html">
+
+<dom-module id="udacity-baroda-sponsors">
+
+  <template>
+
+    <style include="iron-flex iron-flex-alignment">
+      :host {
+        display: block;
+        padding: 10px;
+      }
+      h1 {
+        font-weight: 300;
+        text-align: center;
+      }
+      img {
+        padding: 10px;
+        height: auto;
+        width: 400px;
+      }
+    </style>
+
+    <iron-ajax
+      auto
+      url="../content/sponsors.json"
+      method="GET"
+      params='{"alt":"json", "q":"chrome"}'
+      handle-as="json"
+      last-response="{{ajaxResponse}}"></iron-ajax>
+
+    <h1>Our Sponsors</h1>
+    <div class="layout horizontal center wrap">
+      <template is="dom-repeat" items=[[ajaxResponse]]>
+        <div class="flex"></div>
+        <a href="{{item.url}}" target="_blank" class="flex">
+          <img src="{{item.imgUrl}}" alt="{{item.name}}" />
+        </a>
+        <div class="flex"></div>
+      </template>
+    </div>
+
+  </template>
+
+  <script>
+
+    Polymer({
+      is: 'udacity-baroda-sponsors'
+    });
+
+  </script>
+
+</dom-module>
